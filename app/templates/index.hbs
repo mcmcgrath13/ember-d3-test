@@ -1,0 +1,25 @@
+
+<div class="center">
+    {{mesh-filter filter=(action 'filterByMeSH') }}
+</div>
+<div class="results">
+    {{my-plot-ly
+        chartData=groupCount
+        chartLayout=chartLayout
+        chartOptions=chartOptions
+        onPlotlyEvent=onPlotlyEvent
+        isResponsive=true
+    }}
+
+    {{models-table
+        data=model
+        columns=columns
+        showComponentFooter=true
+        showColumnsDropdown=false
+        showGlobalFilter=false
+        filteringIgnoreCase=true
+        showPageSize=true
+        class="table-striped"
+        useNumericPagination=true
+    }}
+</div>

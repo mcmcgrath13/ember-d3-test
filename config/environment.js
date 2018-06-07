@@ -6,6 +6,13 @@ module.exports = function(environment) {
     environment,
     rootURL: '/',
     locationType: 'auto',
+    // ember-cli-plotly
+    plotlyComponent: {
+      defaultOptions: {
+        // Override plotly.js defaults
+        displaylogo: false
+      }
+    },
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
