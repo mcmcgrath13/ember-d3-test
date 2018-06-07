@@ -2,15 +2,12 @@
 <div class="center">
     {{mesh-filter filter=(action 'filterByMeSH') }}
 </div>
-<div class="results">
-    {{my-plot-ly
-        chartData=groupCount
-        chartLayout=chartLayout
-        chartOptions=chartOptions
-        onPlotlyEvent=onPlotlyEvent
-        isResponsive=true
-    }}
 
+<div class="results">
+    {{bar-chart
+        data=groupCount
+    }}
+    
     {{models-table
         data=model
         columns=columns

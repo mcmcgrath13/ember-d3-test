@@ -45,23 +45,11 @@ export default Controller.extend({
   groupCount: computed('model' ,function() {
     if (this.get('model') !== null) {
       var cnts = _.countBy(this.get('model').getEach('pubYear'))
-      var xvals = []
-      var yvals = []
+      var vals = []
       _.forEach(cnts, function(value, key) {
-        xvals.push(key)
-        yvals.push(value)
+        vals.push({x: key, y: value})
       })
-      return [{
-        x: xvals,
-        y: yvals,
-        type: 'bar'
-      }]
-    } else {
-      return [{
-        x: [0],
-        y: [0],
-        type: 'bar'
-      }]
+      return vals
     }
   })
 })
