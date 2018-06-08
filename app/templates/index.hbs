@@ -1,13 +1,21 @@
 
-<div class="center">
-    {{mesh-filter filter=(action 'filterByMeSH') }}
+<div class="row justify-content-center">
+    <div class="col col-md-auto">
+        {{mesh-filter filter=(action 'filterByMeSH') }}
+    </div>
 </div>
 
-<div class="results">
+
+{{#if loading}}
+    {{my-ember-spinner}}
+{{/if}}
+
+<div class="results align-center">
     {{bar-chart
         data=groupCount
     }}
-    
+</div>
+<div class="results">
     {{models-table
         data=model
         columns=columns

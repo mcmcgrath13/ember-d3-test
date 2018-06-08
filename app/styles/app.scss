@@ -5,16 +5,17 @@
   padding: 30px;
 }
 
-.center {
-    display: block;
-    margin: 0px auto 0px;
-    width: 300px;
-}
-
 .bar {
   fill: steelblue;
 }
 
 .bar:hover {
   fill: brown;
+}
+
+.bar-chart {
+  display: block;
+  margin: auto;
+  padding: 10px;
+
 }

@@ -6,29 +6,23 @@ export default Controller.extend({
   init() {
     this._super(...arguments);
     this.setProperties({
-      chartLayout: {
-        // Layout options
-        // See https://plot.ly/javascript/reference/#layout
-      },
-      chartOptions: {
-        // Override default options from config/environment.js & plotly.js
-        // See https://github.com/plotly/plotly.js/blob/master/src/plot_api/plot_config.js
-      },
-      // Component will listen for these events and forward them via onPlotlyEvent
-      plotlyEvents: ['plotly_restyle']
+      loading: false
     });
   },
 
   actions: {
     filterByMeSH(param) {
-      if (param !== '') {
+      this.set('loading',true)
+      if (param !== null) {
         return this.get('store').query('article', { mesh: param }).then((results) => {
           this.set('model',results);
+          this.set('loading',false)
           return { query: param, results: results };
         });
       } else {
         return this.get('store').findAll('article').then((results) => {
           this.set('model',results);
+          this.set('loading',false)
           return { query: param, results: results };
         });
       }
